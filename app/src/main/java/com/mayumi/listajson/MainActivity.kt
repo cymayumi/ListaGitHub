@@ -19,10 +19,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun initVars() {
         context = this@MainActivity
+
         lv_list.adapter = Adapter(
             context,
             R.layout.celula,
-            gerarClientes(1000)
+            gerarClientes(100)
         )
     }
 
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         var clientes = ArrayList<HMAux>()
 
         for (i in 1..quantidade) {
-            var aux = HMAux() // ??? chaves 0
+            var aux = HMAux()
             aux[HMAux.ID] = i.toString()
             aux[HMAux.NOME] = "Nome $i"
 
