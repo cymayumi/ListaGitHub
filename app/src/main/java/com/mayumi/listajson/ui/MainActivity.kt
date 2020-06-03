@@ -1,8 +1,10 @@
-package com.mayumi.listajson
+package com.mayumi.listajson.ui
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mayumi.listajson.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,29 +21,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun initVars() {
         context = this@MainActivity
-
-        lv_list.adapter = Adapter(
-            context,
-            R.layout.celula,
-            gerarClientes(100)
-        )
     }
 
     private fun initActions() {
-
-    }
-
-    private fun gerarClientes(quantidade: Int): ArrayList<HMAux> {
-        var clientes = ArrayList<HMAux>()
-
-        for (i in 1..quantidade) {
-            var aux = HMAux()
-            aux[HMAux.ID] = i.toString()
-            aux[HMAux.NOME] = "Nome $i"
-
-            clientes.add(aux)
+        btn_start.setOnClickListener {
+            val mIntent = Intent(context, HomeActivity::class.java)
+            startActivity(mIntent)
+            finish()
         }
-
-        return clientes
     }
+
 }
