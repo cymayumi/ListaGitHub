@@ -1,4 +1,4 @@
-package com.mayumi.listajson
+package com.mayumi.listajson.list
 
 class HMAux : HashMap <String, String>(){
     companion object{

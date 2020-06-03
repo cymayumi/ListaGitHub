@@ -1,4 +1,4 @@
-package com.mayumi.listajson
+package com.mayumi.listajson.list
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import com.mayumi.listajson.R
+import com.mayumi.listajson.model.Star
 
-class Adapter (
+class MeuAdapter (
     private val context: Context,
     private var resource: Int,
-    private var dados: ArrayList<HMAux>):BaseAdapter(){
+    private var listaPosts: List<Star>):BaseAdapter(){
 
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
@@ -23,23 +25,23 @@ class Adapter (
 
         var tv_nome = mView?.findViewById<TextView>(R.id.celula_tv_nome)
 
-        val item = dados[position]
+        val item = listaPosts[position]
 
-        tv_nome?.setText(item[HMAux.NOME])
+        tv_nome?.text = item.name
 
         return mView!!
     }
 
     override fun getItem(position: Int): Any {
-        return dados[position]
+        return listaPosts[position]
     }
 
     override fun getItemId(position: Int): Long {
-        return dados[position][HMAux.ID]?.toLong() ?: 0L
+        return listaPosts[position].id.toLong()
     }
 
     override fun getCount(): Int {
-        return dados.size
+        return listaPosts.size
     }
 
 }
