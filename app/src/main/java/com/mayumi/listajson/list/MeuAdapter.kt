@@ -38,6 +38,7 @@ class MeuAdapter (
         var myUri = Uri.parse(item.avatar_url)
         Picasso.with(context).load(myUri).resize(100, 100).centerCrop().into(iv_photo)
 
+
         return mView!!
     }
 

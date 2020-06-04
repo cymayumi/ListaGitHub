@@ -2,10 +2,13 @@ package com.mayumi.listajson.ui
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mayumi.listajson.R
+import com.mayumi.listajson.Utils.Constantes
 import com.mayumi.listajson.list.MeuAdapter
 import com.mayumi.listajson.model.Users
 import com.mayumi.listajson.service.ServiceBuilder
@@ -34,7 +37,12 @@ class HomeActivity : AppCompatActivity() {
     private fun initActions() {
 
         list.setOnItemClickListener { parent, view, position, id ->
+
+            var user = view.findViewById<TextView>(R.id.cel_tv_user)
+
             val mIntent = Intent(context, UserActivity::class.java)
+
+            mIntent.putExtra(Constantes.USER, user.text.toString())
             startActivity(mIntent)
             finish()
         }
@@ -58,7 +66,6 @@ class HomeActivity : AppCompatActivity() {
                     )
 
                     list.adapter = meuAdapter
-
                 }
             }
 
