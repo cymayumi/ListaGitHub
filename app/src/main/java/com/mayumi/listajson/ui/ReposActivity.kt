@@ -46,11 +46,17 @@ class ReposActivity : AppCompatActivity() {
             startActivity(mIntent)
             finish()
         }
+
+        btn_voltar_repos.setOnClickListener {
+            val mIntent = Intent(context, HomeActivity::class.java)
+            startActivity(mIntent)
+            finish()
+        }
     }
 
     private fun recuperarParametros() : String{
         var username = intent.getStringExtra(Constantes.USER)
-
+        tv_name_user.text = username
         carregarLista(username)
         return username
     }
@@ -79,5 +85,11 @@ class ReposActivity : AppCompatActivity() {
                 Toast.makeText(context, "Ocorreu um erro!", Toast.LENGTH_LONG).show()
             }
         })
+    }
+
+    override fun onBackPressed() {
+        val mIntent = Intent(context, HomeActivity::class.java)
+        startActivity(mIntent)
+        finish()
     }
 }

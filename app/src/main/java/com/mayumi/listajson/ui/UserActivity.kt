@@ -15,6 +15,7 @@ import com.mayumi.listajson.service.ServiceBuilder
 import com.mayumi.listajson.service.WebAPI
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_repos.*
 import kotlinx.android.synthetic.main.activity_user.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,16 +38,23 @@ class UserActivity : AppCompatActivity() {
     }
 
     private fun initActions() {
+        btn_voltar.setOnClickListener {
+            val mIntent = Intent(context, ReposActivity::class.java)
+            mIntent.putExtra(Constantes.USER, recuperarParametros())
+            startActivity(mIntent)
+            finish()
+        }
     }
 
-    private fun recuperarParametros() {
+    private fun recuperarParametros() : String {
         var username = intent.getStringExtra(Constantes.USER)
         tv_user.text = username!!
 
         carregarDados(username)
+        return username
     }
 
-    private fun carregarDados(username : String){
+    private fun carregarDados(username: String) {
         val destinationService = ServiceBuilder.buildService(WebAPI::class.java)
         val requestCall = destinationService.getData(username)
 
@@ -74,11 +82,10 @@ class UserActivity : AppCompatActivity() {
         })
     }
 
-
     override fun onBackPressed() {
-        val mIntent = Intent(context, HomeActivity::class.java)
+        val mIntent = Intent(context, ReposActivity::class.java)
+        mIntent.putExtra(Constantes.USER, recuperarParametros())
         startActivity(mIntent)
-
         finish()
     }
 }

@@ -1,98 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:gravity="center"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-            android:id="@+id/tv_name"
-            android:text="Nome Completo"
-            android:textSize="30sp"
-            android:textColor="@color/gray_dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D3D3D3"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-    <TextView
-            android:id="@+id/tv_user"
-            android:text="User"
-            android:textColor="@color/gray_light"
-            android:textSize="18sp"
-            android:layout_marginBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    <ImageView
-            android:id="@+id/iv_photo_user"
-            android:padding="20dp"
-            android:layout_width="200dp"
-            android:layout_height="200dp"/>
-
-    <TextView
-            android:id="@+id/tv_location"
-            android:text="Localização"
-            android:textColor="@color/gray_light"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    <LinearLayout android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal"
-                  android:layout_marginTop="30dp">
-
-        <TextView
-                android:id="@+id/tv_followers"
-                android:text="Number"
-                android:padding="5dp"
-                android:textColor="@color/gray_dark"
-                android:textSize="18sp"
+        <Button
+                android:id="@+id/btn_voltar"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:text="Followers"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-    <LinearLayout android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-
-        <TextView
-                android:id="@+id/tv_following"
-                android:text="Number"
-                android:padding="5dp"
-                android:textColor="@color/gray_dark"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:text="Following"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-    <LinearLayout android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-
-        <TextView
-                android:id="@+id/tv_repositories"
-                android:text="Number"
-                android:padding="5dp"
-                android:textColor="@color/gray_dark"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:text="Public Repositories"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/custom_button"
+                android:text="Voltar"
+                android:textColor="#66b9f9" />
     </LinearLayout>
 
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+        <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome Completo"
+                android:textColor="@color/gray_dark"
+                android:textSize="30sp" />
+
+        <TextView
+                android:id="@+id/tv_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="User"
+                android:textColor="@color/gray_light"
+                android:textSize="18sp" />
+
+        <ImageView
+                android:id="@+id/iv_photo_user"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:padding="20dp" />
+
+        <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Localização"
+                android:textColor="@color/gray_light"
+                android:textSize="18sp" />
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_followers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Number"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="18sp" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Followers"
+                    android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Number"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="18sp" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Following"
+                    android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_repositories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Number"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="18sp" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Public Repositories"
+                    android:textSize="18sp" />
+
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

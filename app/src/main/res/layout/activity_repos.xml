@@ -4,37 +4,52 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#D3D3D3"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:background="#F0EBEB"
-            android:padding="10dp"
-            android:gravity="end">
+            android:padding="10dp">
+
+        <ImageView
+                android:id="@+id/btn_voltar_repos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:src="@drawable/baseline_keyboard_backspace_black_18dp" />
 
         <TextView
                 android:id="@+id/tv_name_user"
-                android:text="Nome do Usuário"
-                android:textSize="20sp"
-                android:textColor="@color/gray_dark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                />
+                android:layout_marginLeft="15dp"
+                android:text="Nome do Usuário"
+                android:textColor="@color/gray_dark"
+                android:textSize="20sp" />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:padding="5dp"
+                android:text="repos"
+                android:textColor="@color/gray_dark"
+                android:textSize="20sp" />
 
         <Button
                 android:id="@+id/btn_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
-                android:textColor="#66b9f9"
                 android:background="@drawable/custom_button"
-                android:text="PERFIL"/>
+                android:text="PERFIL"
+                android:textColor="#66b9f9" />
     </LinearLayout>
 
     <ListView
             android:id="@+id/list_repos"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
 </LinearLayout>
