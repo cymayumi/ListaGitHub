@@ -1,12 +1,13 @@
 package com.mayumi.listajson.service
 
-import com.mayumi.listajson.model.Star
+
+import com.mayumi.listajson.model.Users
 import retrofit2.Call
 import retrofit2.http.GET
 
 interface WebAPI {
 
-    @GET("repositories")
-    fun getList(): Call<List<Star>>
+    @GET("users")
+    fun getList(): Call<List<Users>>
 
 }

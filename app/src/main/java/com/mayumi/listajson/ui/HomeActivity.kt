@@ -3,12 +3,11 @@ package com.mayumi.listajson.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Adapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mayumi.listajson.R
 import com.mayumi.listajson.list.MeuAdapter
-import com.mayumi.listajson.model.Star
+import com.mayumi.listajson.model.Users
 import com.mayumi.listajson.service.ServiceBuilder
 import com.mayumi.listajson.service.WebAPI
 import kotlinx.android.synthetic.main.activity_home.*
@@ -39,9 +38,9 @@ class HomeActivity : AppCompatActivity() {
         val destinationService = ServiceBuilder.buildService(WebAPI::class.java)
         val requestCall = destinationService.getList()
 
-        requestCall.enqueue(object : Callback<List<Star>> {
+        requestCall.enqueue(object : Callback<List<Users>> {
 
-            override fun onResponse(call: Call<List<Star>>, response: Response<List<Star>>) {
+            override fun onResponse(call: Call<List<Users>>, response: Response<List<Users>>) {
                 if (response.isSuccessful) {
                     var listaPosts = response.body()!!
 
@@ -56,7 +55,7 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<List<Star>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Users>>, t: Throwable) {
                 Toast.makeText(context, "Ocorreu um erro!", Toast.LENGTH_LONG).show()
             }
         })
