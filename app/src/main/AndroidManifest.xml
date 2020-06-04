@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.HomeActivity"></activity>
+        <activity android:name=".ui.ReposActivity"></activity>
         <activity android:name=".ui.UserActivity"></activity>
     </application>
 

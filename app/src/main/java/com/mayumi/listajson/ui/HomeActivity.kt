@@ -21,6 +21,7 @@ import retrofit2.Response
 class HomeActivity : AppCompatActivity() {
     private lateinit var context: Context
     private lateinit var meuAdapter: MeuAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -39,8 +40,7 @@ class HomeActivity : AppCompatActivity() {
         list.setOnItemClickListener { parent, view, position, id ->
 
             var user = view.findViewById<TextView>(R.id.cel_tv_user)
-
-            val mIntent = Intent(context, UserActivity::class.java)
+            val mIntent = Intent(context, ReposActivity::class.java)
 
             mIntent.putExtra(Constantes.USER, user.text.toString())
             startActivity(mIntent)

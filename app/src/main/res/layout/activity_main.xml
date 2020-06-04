@@ -7,20 +7,22 @@
 
     <ImageView android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:src="@drawable/github"
+               android:src="@drawable/logo_github"
                android:layout_gravity="center"
                android:layout_marginTop="50dp"
     />
 
-    <TextView
+    <Button
             android:id="@+id/btn_start"
+            android:background="@drawable/custom_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tap HERE to access"
-            android:textSize="30sp"
+            android:text="Clique para acessar"
+            android:textSize="20sp"
+            android:textColor="#66b9f9"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:textColor="@color/gray_dark"
+            android:padding="15dp"
+            android:layout_marginTop="70dp"
     />
 
 </LinearLayout>
