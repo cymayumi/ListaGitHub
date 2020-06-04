@@ -36,7 +36,7 @@ class MeuAdapter (
         tv_nome?.text = item.login
 
         var myUri = Uri.parse(item.avatar_url)
-        Picasso.with(context).load(myUri).resize(100, 100).centerCrop().into(iv_photo)
+        Picasso.with(context).load(myUri).resize(70, 70).centerCrop().into(iv_photo)
 
 
         return mView!!
