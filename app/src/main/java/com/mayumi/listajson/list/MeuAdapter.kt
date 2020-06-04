@@ -29,13 +29,11 @@ class MeuAdapter (
         }
 
         var tv_nome = mView?.findViewById<TextView>(R.id.cel_tv_user)
-        //var tv_full = mView?.findViewById<TextView>(R.id.cel_tv_full)
         var iv_photo = mView?.findViewById<ImageView>(R.id.cel_photo)
 
         val item = listaPosts[position]
 
         tv_nome?.text = item.login
-        //tv_full?.text = item.name
 
         var myUri = Uri.parse(item.avatar_url)
         Picasso.with(context).load(myUri).resize(100, 100).centerCrop().into(iv_photo)

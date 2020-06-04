@@ -28,10 +28,17 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initVars() {
         context = this@HomeActivity
+        carregarLista()
     }
 
     private fun initActions() {
-        carregarLista()
+
+        list.setOnItemClickListener { parent, view, position, id ->
+            val mIntent = Intent(context, UserActivity::class.java)
+            startActivity(mIntent)
+            finish()
+        }
+
     }
 
     private fun carregarLista() {
