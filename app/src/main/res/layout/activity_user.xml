@@ -7,32 +7,31 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#D3D3D3"
-            android:gravity="end"
+            android:background="#fafafa"
+            android:gravity="start"
             android:orientation="horizontal"
             android:padding="10dp">
 
-        <Button
+        <ImageView
                 android:id="@+id/btn_voltar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/custom_button"
-                android:text="Voltar"
-                android:textColor="#66b9f9" />
+                android:padding="5dp"
+                android:src="@drawable/ic_baseline_keyboard_backspace_24" />
+
     </LinearLayout>
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
         <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
                 android:text="Nome Completo"
                 android:textColor="@color/gray_dark"
                 android:textSize="30sp" />
@@ -43,7 +42,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:text="User"
-                android:textColor="@color/gray_light"
                 android:textSize="18sp" />
 
         <ImageView
@@ -57,14 +55,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Localização"
-                android:textColor="@color/gray_light"
                 android:textSize="18sp" />
+
 
         <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
 
             <TextView
                     android:id="@+id/tv_followers"
@@ -124,7 +122,6 @@
                     android:layout_height="wrap_content"
                     android:text="Public Repositories"
                     android:textSize="18sp" />
-
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

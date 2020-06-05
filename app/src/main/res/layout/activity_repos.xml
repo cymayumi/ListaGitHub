@@ -7,7 +7,7 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#D3D3D3"
+            android:background="#fafafa"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="10dp">
@@ -17,7 +17,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:src="@drawable/baseline_keyboard_backspace_black_18dp" />
+                android:src="@drawable/ic_baseline_keyboard_backspace_24" />
 
         <TextView
                 android:id="@+id/tv_name_user"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="15dp"
                 android:padding="5dp"
-                android:text="repos"
+                android:text="Repositorios"
                 android:textColor="@color/gray_dark"
                 android:textSize="20sp" />
 
