@@ -7,16 +7,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mayumi.listajson.R
 import com.mayumi.listajson.Utils.Constantes
-import com.mayumi.listajson.list.MeuAdapter
 import com.mayumi.listajson.list.ReposAdapter
 import com.mayumi.listajson.model.Repos
-import com.mayumi.listajson.model.Users
 import com.mayumi.listajson.service.ServiceBuilder
 import com.mayumi.listajson.service.WebAPI
-import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_repos.*
-import kotlinx.android.synthetic.main.activity_user.*
+import kotlinx.android.synthetic.main.activity_repos.btn_perfil
+import kotlinx.android.synthetic.main.activity_repos.btn_voltar_repos
+import kotlinx.android.synthetic.main.activity_repos.list_repos
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -56,7 +54,7 @@ class ReposActivity : AppCompatActivity() {
 
     private fun recuperarParametros() : String{
         var username = intent.getStringExtra(Constantes.USER)
-        tv_name_user.text = username
+        tv_nome_user.text = username
         carregarLista(username)
         return username
     }

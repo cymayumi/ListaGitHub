@@ -1,55 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="#fafafa">
 
-    <LinearLayout
-            android:layout_width="match_parent"
+    <ImageView
+            android:id="@+id/btn_voltar_repos"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#fafafa"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="17dp"
+            android:padding="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_keyboard_backspace_24" />
 
-        <ImageView
-                android:id="@+id/btn_voltar_repos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:src="@drawable/ic_baseline_keyboard_backspace_24" />
+    <TextView
+            android:id="@+id/tv_nome_user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Nome"
+            android:textAlignment="center"
+            android:textColor="@color/gray_dark"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintHorizontal_bias="0.692"
+            app:layout_constraintStart_toEndOf="@+id/btn_voltar_repos" />
 
-        <TextView
-                android:id="@+id/tv_name_user"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="Nome do Usuário"
-                android:textColor="@color/gray_dark"
-                android:textSize="20sp" />
+    <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            android:text="Repositórios"
+            android:textColor="@color/gray_dark"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_perfil"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                android:padding="5dp"
-                android:text="Repositorios"
-                android:textColor="@color/gray_dark"
-                android:textSize="20sp" />
-
-        <Button
-                android:id="@+id/btn_perfil"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/custom_button"
-                android:text="PERFIL"
-                android:textColor="#66b9f9" />
-    </LinearLayout>
+    <Button
+            android:id="@+id/btn_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/custom_button"
+            android:text="perfil"
+            android:textColor="#66b9f9"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     <ListView
             android:id="@+id/list_repos"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="52dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-</LinearLayout>
+    </ListView>
+</androidx.constraintlayout.widget.ConstraintLayout>
