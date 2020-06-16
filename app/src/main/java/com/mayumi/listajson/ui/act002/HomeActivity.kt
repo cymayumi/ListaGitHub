@@ -1,8 +1,7 @@
-package com.mayumi.listajson.ui
+package com.mayumi.listajson.ui.act002
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
@@ -13,14 +12,17 @@ import com.mayumi.listajson.list.MeuAdapter
 import com.mayumi.listajson.model.Users
 import com.mayumi.listajson.service.ServiceBuilder
 import com.mayumi.listajson.service.WebAPI
+import com.mayumi.listajson.ui.act003.ReposActivity
+import com.mayumi.listajson.ui.act001.MainActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), HomeActivityContract.I_View {
     private lateinit var context: Context
     private lateinit var meuAdapter: MeuAdapter
+    private lateinit var mPresenter: HomeActivityContract.I_Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +34,8 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initVars() {
         context = this@HomeActivity
-        carregarLista()
+        mPresenter = HomeActivityPresenter(this)
+        mPresenter.carregarListaUsers()
     }
 
     private fun initActions() {
@@ -49,37 +52,25 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    private fun carregarLista() {
-        val destinationService = ServiceBuilder.buildService(WebAPI::class.java)
-        val requestCall = destinationService.getList()
-
-        requestCall.enqueue(object : Callback<List<Users>> {
-
-            override fun onResponse(call: Call<List<Users>>, response: Response<List<Users>>) {
-                if (response.isSuccessful) {
-                    var listaPosts = response.body()!!
-
-                    meuAdapter = MeuAdapter(
-                        context,
-                        R.layout.celula,
-                        listaPosts
-                    )
-
-                    list.adapter = meuAdapter
-                }
-            }
-
-            override fun onFailure(call: Call<List<Users>>, t: Throwable) {
-                Toast.makeText(context, "Ocorreu um erro!", Toast.LENGTH_LONG).show()
-            }
-        })
-    }
-
     override fun onBackPressed() {
         val mIntent = Intent(context, MainActivity::class.java)
         startActivity(mIntent)
 
         finish()
+    }
+
+    override fun showListaUsers(lista: List<Users>) {
+        meuAdapter = MeuAdapter(
+            context,
+            R.layout.celula,
+            lista
+        )
+
+        list.adapter = meuAdapter
+    }
+
+    override fun showErrorMsg() {
+        Toast.makeText(context, "Ocorreu um erro!", Toast.LENGTH_LONG).show()
     }
 
 }

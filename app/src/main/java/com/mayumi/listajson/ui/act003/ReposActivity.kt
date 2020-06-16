@@ -1,4 +1,4 @@
-package com.mayumi.listajson.ui
+package com.mayumi.listajson.ui.act003
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,8 @@ import com.mayumi.listajson.list.ReposAdapter
 import com.mayumi.listajson.model.Repos
 import com.mayumi.listajson.service.ServiceBuilder
 import com.mayumi.listajson.service.WebAPI
+import com.mayumi.listajson.ui.act004.UserActivity
+import com.mayumi.listajson.ui.act002.HomeActivity
 import kotlinx.android.synthetic.main.activity_repos.*
 import kotlinx.android.synthetic.main.activity_repos.btn_perfil
 import kotlinx.android.synthetic.main.activity_repos.btn_voltar_repos

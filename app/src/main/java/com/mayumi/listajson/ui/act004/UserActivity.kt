@@ -1,4 +1,4 @@
-package com.mayumi.listajson.ui
+package com.mayumi.listajson.ui.act004
 
 import android.content.Context
 import android.content.Intent
@@ -8,14 +8,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mayumi.listajson.R
 import com.mayumi.listajson.Utils.Constantes
-import com.mayumi.listajson.list.MeuAdapter
 import com.mayumi.listajson.model.Data
-import com.mayumi.listajson.model.Users
 import com.mayumi.listajson.service.ServiceBuilder
 import com.mayumi.listajson.service.WebAPI
+import com.mayumi.listajson.ui.act003.ReposActivity
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_repos.*
 import kotlinx.android.synthetic.main.activity_user.*
 import retrofit2.Call
 import retrofit2.Callback

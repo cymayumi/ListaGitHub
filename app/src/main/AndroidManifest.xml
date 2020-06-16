@@ -11,7 +11,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity"
+        <activity android:name=".ui.act001.MainActivity"
                   android:label="@string/app_name"
                   android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,9 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.HomeActivity"></activity>
-        <activity android:name=".ui.ReposActivity"></activity>
-        <activity android:name=".ui.UserActivity"></activity>
+        <activity android:name=".ui.act002.HomeActivity"></activity>
+        <activity android:name=".ui.act003.ReposActivity"></activity>
+        <activity android:name=".ui.act004.UserActivity"></activity>
     </application>
 
 </manifest>

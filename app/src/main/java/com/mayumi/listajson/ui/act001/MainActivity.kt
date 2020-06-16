@@ -1,15 +1,17 @@
-package com.mayumi.listajson.ui
+package com.mayumi.listajson.ui.act001
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mayumi.listajson.R
+import com.mayumi.listajson.ui.act002.HomeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainActivityContract.I_View {
 
     private lateinit var context: Context
+    private lateinit var mPresenter : MainActivityContract.I_Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,14 +23,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun initVars() {
         context = this@MainActivity
+        mPresenter = MainActivityPresenter(this)
     }
 
     private fun initActions() {
         btn_start.setOnClickListener {
-            val mIntent = Intent(context, HomeActivity::class.java)
-            startActivity(mIntent)
-            finish()
+            executaNavegacao()
         }
+    }
+
+    override fun executaNavegacao() {
+        val mIntent = Intent(context, HomeActivity::class.java)
+        startActivity(mIntent)
+        finish()
     }
 
 }
