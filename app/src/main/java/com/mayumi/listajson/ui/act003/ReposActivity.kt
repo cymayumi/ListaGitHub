@@ -8,11 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.mayumi.listajson.R
 import com.mayumi.listajson.Utils.Constantes
 import com.mayumi.listajson.list.ReposAdapter
+import com.mayumi.listajson.list.UserAdapter
 import com.mayumi.listajson.model.Repos
+import com.mayumi.listajson.model.Users
 import com.mayumi.listajson.service.ServiceBuilder
 import com.mayumi.listajson.service.WebAPI
 import com.mayumi.listajson.ui.act004.UserActivity
 import com.mayumi.listajson.ui.act002.HomeActivity
+import com.mayumi.listajson.ui.act002.HomeActivityContract
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_repos.*
 import kotlinx.android.synthetic.main.activity_repos.btn_perfil
 import kotlinx.android.synthetic.main.activity_repos.btn_voltar_repos
@@ -21,9 +25,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ReposActivity : AppCompatActivity() {
+class ReposActivity : AppCompatActivity(), ReposActivityContract.I_View {
     private lateinit var context: Context
     private lateinit var reposAdapter: ReposAdapter
+    private lateinit var mPresenter: ReposActivityContract.I_Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +40,8 @@ class ReposActivity : AppCompatActivity() {
 
     private fun initVars() {
         context = this@ReposActivity
+        mPresenter = ReposActivityPresenter(this)
+
         recuperarParametros()
     }
 
@@ -57,39 +64,27 @@ class ReposActivity : AppCompatActivity() {
     private fun recuperarParametros() : String{
         var username = intent.getStringExtra(Constantes.USER)
         tv_nome_user.text = username
-        carregarLista(username)
+        mPresenter.carregarlistaAPI(username)
         return username
-    }
-
-    private fun carregarLista(username: String) {
-        val destinationService = ServiceBuilder.buildService(WebAPI::class.java)
-        val requestCall = destinationService.getListRepos(username)
-
-        requestCall.enqueue(object : Callback<List<Repos>> {
-
-            override fun onResponse(call: Call<List<Repos>>, response: Response<List<Repos>>) {
-                if (response.isSuccessful) {
-                    var listaRepositorios = response.body()!!
-
-                    reposAdapter = ReposAdapter(
-                        context,
-                        R.layout.celula_repos,
-                        listaRepositorios
-                    )
-
-                    list_repos.adapter = reposAdapter
-                }
-            }
-
-            override fun onFailure(call: Call<List<Repos>>, t: Throwable) {
-                Toast.makeText(context, "Ocorreu um erro!", Toast.LENGTH_LONG).show()
-            }
-        })
     }
 
     override fun onBackPressed() {
         val mIntent = Intent(context, HomeActivity::class.java)
         startActivity(mIntent)
         finish()
+    }
+
+    override fun showListaRepos(lista: List<Repos>) {
+        reposAdapter = ReposAdapter(
+            context,
+            R.layout.celula_repos,
+            lista
+        )
+
+        list_repos.adapter = reposAdapter
+    }
+
+    override fun showErrorMsg(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }

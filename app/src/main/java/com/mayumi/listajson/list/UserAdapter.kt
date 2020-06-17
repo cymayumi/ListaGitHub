@@ -14,7 +14,7 @@ import com.mayumi.listajson.model.Users
 import com.squareup.picasso.Picasso
 
 
-class MeuAdapter (
+class UserAdapter (
     private val context: Context,
     private var resource: Int,
     private var listaPosts: List<Users>):BaseAdapter(){

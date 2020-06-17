@@ -8,20 +8,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mayumi.listajson.R
 import com.mayumi.listajson.Utils.Constantes
-import com.mayumi.listajson.list.MeuAdapter
+import com.mayumi.listajson.list.UserAdapter
 import com.mayumi.listajson.model.Users
-import com.mayumi.listajson.service.ServiceBuilder
-import com.mayumi.listajson.service.WebAPI
 import com.mayumi.listajson.ui.act003.ReposActivity
 import com.mayumi.listajson.ui.act001.MainActivity
 import kotlinx.android.synthetic.main.activity_home.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class HomeActivity : AppCompatActivity(), HomeActivityContract.I_View {
     private lateinit var context: Context
-    private lateinit var meuAdapter: MeuAdapter
+    private lateinit var userAdapter: UserAdapter
     private lateinit var mPresenter: HomeActivityContract.I_Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +30,7 @@ class HomeActivity : AppCompatActivity(), HomeActivityContract.I_View {
     private fun initVars() {
         context = this@HomeActivity
         mPresenter = HomeActivityPresenter(this)
-        mPresenter.carregarListaUsers()
+        mPresenter.carregarAPI()
     }
 
     private fun initActions() {
@@ -60,17 +55,17 @@ class HomeActivity : AppCompatActivity(), HomeActivityContract.I_View {
     }
 
     override fun showListaUsers(lista: List<Users>) {
-        meuAdapter = MeuAdapter(
+        userAdapter = UserAdapter(
             context,
             R.layout.celula,
             lista
         )
 
-        list.adapter = meuAdapter
+        list.adapter = userAdapter
     }
 
-    override fun showErrorMsg() {
-        Toast.makeText(context, "Ocorreu um erro!", Toast.LENGTH_LONG).show()
+    override fun showErrorMsg(message:String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 
 }
