@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.mayumi.listajson.R
 import com.mayumi.listajson.Utils.Constantes
 import com.mayumi.listajson.model.Data
+import com.mayumi.listajson.model.Repos
 import com.mayumi.listajson.service.ServiceBuilder
 import com.mayumi.listajson.service.WebAPI
 import com.mayumi.listajson.ui.act003.ReposActivity
@@ -18,8 +19,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserActivity : AppCompatActivity() {
+class UserActivity : AppCompatActivity(),UserActivityContract.I_View {
     private lateinit var context: Context
+    private lateinit var mPresenter: UserActivityContract.I_Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class UserActivity : AppCompatActivity() {
 
     private fun initVars() {
         context = this@UserActivity
+        mPresenter = UserActivityPresenter(this)
         recuperarParametros()
     }
 
@@ -47,42 +50,30 @@ class UserActivity : AppCompatActivity() {
         var username = intent.getStringExtra(Constantes.USER)
         tv_user.text = username!!
 
-        carregarDados(username)
+        mPresenter.carregarDadosAPI(username)
         return username
     }
 
-    private fun carregarDados(username: String) {
-        val destinationService = ServiceBuilder.buildService(WebAPI::class.java)
-        val requestCall = destinationService.getData(username)
-
-        requestCall.enqueue(object : Callback<Data> {
-
-            override fun onResponse(call: Call<Data>, response: Response<Data>) {
-                if (response.isSuccessful) {
-                    var dataUser = response.body()!!
-
-                    tv_name.text = dataUser.name
-                    tv_location.text = dataUser.location
-                    tv_followers.text = dataUser.followers.toString()
-                    tv_following.text = dataUser.following.toString()
-                    tv_repositories.text = dataUser.public_repos.toString()
-
-                    var myUri = Uri.parse(dataUser.avatar_url)
-                    Picasso.with(context).load(myUri).into(iv_photo_user)
-
-                }
-            }
-
-            override fun onFailure(call: Call<Data>, t: Throwable) {
-                Toast.makeText(context, "Ocorreu um erro!", Toast.LENGTH_LONG).show()
-            }
-        })
-    }
 
     override fun onBackPressed() {
         val mIntent = Intent(context, ReposActivity::class.java)
         mIntent.putExtra(Constantes.USER, recuperarParametros())
         startActivity(mIntent)
         finish()
+    }
+
+    override fun showDados(dados : Data) {
+        tv_name.text = dados.name
+        tv_location.text = dados.location
+        tv_followers.text = dados.followers.toString()
+        tv_following.text = dados.following.toString()
+        tv_repositories.text = dados.public_repos.toString()
+
+        var myUri = Uri.parse(dados.avatar_url)
+        Picasso.with(context).load(myUri).into(iv_photo_user)
+    }
+
+    override fun showErrorMsg(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }
