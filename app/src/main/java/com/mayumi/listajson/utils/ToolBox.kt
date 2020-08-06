@@ -1,4 +1,4 @@
-package com.mayumi.listajson.Utils
+package com.mayumi.listajson.utils
 
 object Constantes {
 

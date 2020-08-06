@@ -6,24 +6,15 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mayumi.listajson.R
-import com.mayumi.listajson.Utils.Constantes
+import com.mayumi.listajson.utils.Constantes
 import com.mayumi.listajson.list.ReposAdapter
-import com.mayumi.listajson.list.UserAdapter
 import com.mayumi.listajson.model.Repos
-import com.mayumi.listajson.model.Users
-import com.mayumi.listajson.service.ServiceBuilder
-import com.mayumi.listajson.service.WebAPI
 import com.mayumi.listajson.ui.act004.UserActivity
 import com.mayumi.listajson.ui.act002.HomeActivity
-import com.mayumi.listajson.ui.act002.HomeActivityContract
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_repos.*
 import kotlinx.android.synthetic.main.activity_repos.btn_perfil
 import kotlinx.android.synthetic.main.activity_repos.btn_voltar_repos
 import kotlinx.android.synthetic.main.activity_repos.list_repos
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class ReposActivity : AppCompatActivity(), ReposActivityContract.I_View {
     private lateinit var context: Context

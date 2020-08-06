@@ -7,17 +7,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mayumi.listajson.R
-import com.mayumi.listajson.Utils.Constantes
+import com.mayumi.listajson.utils.Constantes
 import com.mayumi.listajson.model.Data
-import com.mayumi.listajson.model.Repos
-import com.mayumi.listajson.service.ServiceBuilder
-import com.mayumi.listajson.service.WebAPI
 import com.mayumi.listajson.ui.act003.ReposActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_user.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class UserActivity : AppCompatActivity(),UserActivityContract.I_View {
     private lateinit var context: Context
