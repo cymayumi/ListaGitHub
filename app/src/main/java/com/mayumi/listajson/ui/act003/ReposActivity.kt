@@ -5,16 +5,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mayumi.listajson.R
 import com.mayumi.listajson.utils.Constantes
-import com.mayumi.listajson.list.ReposAdapter
 import com.mayumi.listajson.model.Repos
 import com.mayumi.listajson.ui.act004.UserActivity
 import com.mayumi.listajson.ui.act002.HomeActivity
 import kotlinx.android.synthetic.main.activity_repos.*
 import kotlinx.android.synthetic.main.activity_repos.btn_perfil
 import kotlinx.android.synthetic.main.activity_repos.btn_voltar_repos
-import kotlinx.android.synthetic.main.activity_repos.list_repos
+
 
 class ReposActivity : AppCompatActivity(), ReposActivityContract.I_View {
     private lateinit var context: Context
@@ -66,13 +67,10 @@ class ReposActivity : AppCompatActivity(), ReposActivityContract.I_View {
     }
 
     override fun showListaRepos(lista: List<Repos>) {
-        reposAdapter = ReposAdapter(
-            context,
-            R.layout.celula_repos,
-            lista
-        )
-
-        list_repos.adapter = reposAdapter
+        recycler_repos.apply {
+            layoutManager= LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            adapter = ReposAdapter(lista)
+        }
     }
 
     override fun showErrorMsg(message: String) {

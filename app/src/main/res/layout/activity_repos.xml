@@ -55,8 +55,8 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent" />
 
-    <ListView
-            android:id="@+id/list_repos"
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_repos"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="66dp"
@@ -65,5 +65,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-    </ListView>
+    </androidx.recyclerview.widget.RecyclerView>
 </androidx.constraintlayout.widget.ConstraintLayout>
