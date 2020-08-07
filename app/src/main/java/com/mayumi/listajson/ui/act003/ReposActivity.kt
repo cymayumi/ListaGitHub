@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mayumi.listajson.R
 import com.mayumi.listajson.model.Repos
+import com.mayumi.listajson.ui.act002.HomeActivity
 import com.mayumi.listajson.ui.act004.UserActivity
 import com.mayumi.listajson.ui.base.BaseActivity
 import com.mayumi.listajson.utils.Constantes
@@ -39,6 +40,12 @@ class ReposActivity : BaseActivity(), ReposActivityContract.I_View {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            android.R.id.home -> {
+                val mIntent = Intent(context, HomeActivity::class.java)
+                startActivity(mIntent)
+                finish()
+                true
+            }
             R.id.miProfile -> {
                 val mIntent = Intent(context, UserActivity::class.java)
                 mIntent.putExtra(Constantes.USER, recuperarParametros())
