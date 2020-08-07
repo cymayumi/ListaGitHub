@@ -10,16 +10,20 @@ import com.mayumi.listajson.R
 import com.mayumi.listajson.utils.Constantes
 import com.mayumi.listajson.model.Data
 import com.mayumi.listajson.ui.act003.ReposActivity
+import com.mayumi.listajson.ui.base.BaseActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_user.*
+import kotlinx.android.synthetic.main.include_toolbar.*
 
-class UserActivity : AppCompatActivity(),UserActivityContract.I_View {
+class UserActivity : BaseActivity(),UserActivityContract.I_View {
     private lateinit var context: Context
     private lateinit var mPresenter: UserActivityContract.I_Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
+
+        setUpToolbar(toolbarMain, R.string.title_activity_profile, true)
 
         initVars()
         initActions()
@@ -32,12 +36,7 @@ class UserActivity : AppCompatActivity(),UserActivityContract.I_View {
     }
 
     private fun initActions() {
-        btn_voltar.setOnClickListener {
-            val mIntent = Intent(context, ReposActivity::class.java)
-            mIntent.putExtra(Constantes.USER, recuperarParametros())
-            startActivity(mIntent)
-            finish()
-        }
+
     }
 
     private fun recuperarParametros() : String {

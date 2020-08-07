@@ -4,15 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mayumi.listajson.R
 import com.mayumi.listajson.model.Users
 import com.mayumi.listajson.ui.act001.MainActivity
+import com.mayumi.listajson.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.include_toolbar.*
 
-class HomeActivity : AppCompatActivity(), HomeActivityContract.I_View {
+class HomeActivity : BaseActivity(), HomeActivityContract.I_View {
     private lateinit var context: Context
     private lateinit var mPresenter: HomeActivityContract.I_Presenter
 
@@ -20,6 +21,7 @@ class HomeActivity : AppCompatActivity(), HomeActivityContract.I_View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        setUpToolbar(toolbarMain, R.string.title_activity_users)
         initVars()
         initActions()
     }
@@ -43,12 +45,12 @@ class HomeActivity : AppCompatActivity(), HomeActivityContract.I_View {
 
     override fun showListaUsers(lista: List<Users>) {
         recycler_home.apply {
-            layoutManager= LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             adapter = HomeAdapter(lista)
         }
     }
 
-    override fun showErrorMsg(message:String) {
+    override fun showErrorMsg(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }

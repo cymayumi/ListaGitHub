@@ -20,9 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.act002.HomeActivity"></activity>
-        <activity android:name=".ui.act003.ReposActivity"></activity>
-        <activity android:name=".ui.act004.UserActivity"></activity>
+        <activity android:name=".ui.act002.HomeActivity"/>
+        <activity android:name=".ui.act003.ReposActivity"
+                android:parentActivityName=".ui.act002.HomeActivity"/>
+        <activity android:name=".ui.act004.UserActivity"
+                android:parentActivityName=".ui.act002.HomeActivity"/>
     </application>
 
 </manifest>

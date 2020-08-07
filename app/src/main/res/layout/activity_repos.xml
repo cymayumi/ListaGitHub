@@ -1,69 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:background="#fafafa">
 
-    <ImageView
-            android:id="@+id/btn_voltar_repos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="17dp"
-            android:padding="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_keyboard_backspace_24" />
-
-    <TextView
-            android:id="@+id/tv_nome_user"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="Nome"
-            android:textAlignment="center"
-            android:textColor="@color/gray_dark"
-            android:textSize="20sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
-            app:layout_constraintEnd_toStartOf="@+id/textView2"
-            app:layout_constraintHorizontal_bias="0.692"
-            app:layout_constraintStart_toEndOf="@+id/btn_voltar_repos" />
-
-    <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Repositórios"
-            android:textColor="@color/gray_dark"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/btn_perfil"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-            android:id="@+id/btn_perfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/custom_button"
-            android:text="perfil"
-            android:textColor="#66b9f9"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
-            app:layout_constraintEnd_toEndOf="parent" />
+    <include layout="@layout/include_toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_repos"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="66dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     </androidx.recyclerview.widget.RecyclerView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+ <!--   <Button
+            android:id="@+id/btn_perfil"
+            android:layout_width="91dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="16dp"
+            android:text="Perfil"
+            app:layout_constraintBottom_toBottomOf="@+id/include2"
+            app:layout_constraintEnd_toEndOf="@+id/include2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.411" />   -->
+
+</LinearLayout>
