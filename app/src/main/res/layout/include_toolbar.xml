@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tool="http://schemas.android.com/tools"
         android:id="@+id/toolbarMain"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/colorPrimary">
+    <TextView
+            tool:text="Título"
+            android:id="@+id/title_toolbar"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+</androidx.appcompat.widget.Toolbar>
 

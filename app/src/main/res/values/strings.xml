@@ -1,6 +1,20 @@
 <resources>
-    <string name="app_name">ListaJson</string>
+    <string name="app_name">GitHub Pop</string>
+
+    <!-- Main Activity -->
+    <string name="content_description_github_image">Github</string>
+    <string name="btn_start">Clique para acessar</string>
+
+    <!-- List Users -->
     <string name="title_activity_users">Lista de Usuários</string>
+
+    <!-- List Repos -->
     <string name="title_activity_repos">Lista de Repositórios</string>
+
+    <!-- Profile -->
     <string name="title_activity_profile">Profile</string>
+    <string name="number_followers_profile">Followers</string>
+    <string name="number_following_profile">Following</string>
+    <string name="number_public_repos_profile">Public Repositories</string>
+    <string name="content_description_user_image">Imagem usuário</string>
 </resources>
