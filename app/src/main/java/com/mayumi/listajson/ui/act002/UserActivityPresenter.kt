@@ -7,9 +7,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeActivityPresenter(
-    private var mView: HomeActivityContract.I_View?
-) : HomeActivityContract.I_Presenter {
+class UserActivityPresenter(
+    private var mView: UserActivityContract.I_View?
+) : UserActivityContract.I_Presenter {
 
     override fun carregarAPI() {
         val destinationService = ServiceBuilder.buildService(WebAPI::class.java)

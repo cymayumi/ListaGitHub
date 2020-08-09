@@ -10,16 +10,16 @@ import com.mayumi.listajson.R
 import com.mayumi.listajson.model.Users
 import com.mayumi.listajson.ui.act001.MainActivity
 import com.mayumi.listajson.ui.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_user.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 
-class HomeActivity : BaseActivity(), HomeActivityContract.I_View {
+class UserActivity : BaseActivity(), UserActivityContract.I_View {
     private lateinit var context: Context
-    private lateinit var mPresenter: HomeActivityContract.I_Presenter
+    private lateinit var mPresenter: UserActivityContract.I_Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_user)
 
         setUpToolbar(toolbarMain, R.string.title_activity_users)
         initVars()
@@ -27,8 +27,8 @@ class HomeActivity : BaseActivity(), HomeActivityContract.I_View {
     }
 
     private fun initVars() {
-        context = this@HomeActivity
-        mPresenter = HomeActivityPresenter(this)
+        context = this@UserActivity
+        mPresenter = UserActivityPresenter(this)
         mPresenter.carregarAPI()
     }
 
@@ -46,7 +46,7 @@ class HomeActivity : BaseActivity(), HomeActivityContract.I_View {
     override fun showListaUsers(lista: List<Users>) {
         recycler_home.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            adapter = HomeAdapter(lista)
+            adapter = UserAdapter(lista)
         }
     }
 

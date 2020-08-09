@@ -5,7 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mayumi.listajson.R
-import com.mayumi.listajson.ui.act002.HomeActivity
+import com.mayumi.listajson.ui.act002.UserActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainActivityContract.I_View {
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.I_View {
     }
 
     override fun executaNavegacao() {
-        val mIntent = Intent(context, HomeActivity::class.java)
+        val mIntent = Intent(context, UserActivity::class.java)
         startActivity(mIntent)
         finish()
     }

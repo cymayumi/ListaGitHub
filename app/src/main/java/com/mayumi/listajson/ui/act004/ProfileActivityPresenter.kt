@@ -1,15 +1,13 @@
 package com.mayumi.listajson.ui.act004
 
-import android.net.Uri
 import com.mayumi.listajson.model.Data
 import com.mayumi.listajson.service.ServiceBuilder
 import com.mayumi.listajson.service.WebAPI
-import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserActivityPresenter(private var mView: UserActivityContract.I_View?):UserActivityContract.I_Presenter {
+class ProfileActivityPresenter(private var mView: ProfileActivityContract.I_View?):ProfileActivityContract.I_Presenter {
 
     override fun carregarDadosAPI(username: String) {
         val destinationService = ServiceBuilder.buildService(WebAPI::class.java)

@@ -2,110 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical">
 
- <include layout="@layout/include_toolbar" />
+    <include layout="@layout/include_toolbar"/>
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_home"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_height="match_parent" />
 
-        <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                tools:text="Nome Completo"
-                android:textColor="@color/gray_dark"
-                android:textSize="30sp" />
-
-        <TextView
-                android:id="@+id/tv_user"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                tools:text="User"
-                style="@style/texto_profile_light"/>
-
-        <ImageView
-                android:id="@+id/iv_photo_user"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:contentDescription="@string/content_description_user_image"
-                android:padding="20dp" />
-
-        <TextView
-                android:id="@+id/tv_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Localização"
-                style="@style/texto_profile_light"/>
-
-
-        <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="40dp">
-
-            <TextView
-                    android:id="@+id/tv_followers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    tools:text="Number"
-                    style="@style/texto_profile_dark" />
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/number_followers_profile"
-                   style="@style/texto_profile_light" />
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            <TextView
-                    android:id="@+id/tv_following"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    tools:text="Number"
-                    style="@style/texto_profile_dark" />
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/number_following_profile"
-                    style="@style/texto_profile_light" />
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            <TextView
-                    android:id="@+id/tv_repositories"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    tools:text="Number"
-                    style="@style/texto_profile_dark" />
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/number_public_repos_profile"
-                    style="@style/texto_profile_light"/>
-        </LinearLayout>
-    </LinearLayout>
 </LinearLayout>

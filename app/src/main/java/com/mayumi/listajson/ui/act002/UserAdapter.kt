@@ -15,9 +15,9 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.celula_users.view.*
 
 
-class HomeAdapter(
+class UserAdapter(
     private var listaUsers: List<Users>
-) : RecyclerView.Adapter<HomeAdapter.UsersViewHolder>() {
+) : RecyclerView.Adapter<UserAdapter.UsersViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersViewHolder {
         val itemView =
